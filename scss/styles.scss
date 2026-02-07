@@ -1,0 +1,162 @@
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,400italic,700);
+
+//Colors:
+/*---------
+rgb(255,255,255)
+rgb(0,0,0)
+rgba(0,0,0,0.5)
+rgba(0,0,0,0.24)
+rgb(22, 34, 42)
+rgb(58, 96, 115)
+
+
+//Fonts:
+Bitter
+FontAwesome
+
+----------*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bitter";
+}
+
+$max-width: 80em;
+$primary-color: rgb(58, 96, 115);
+$dark-color: rgb(22, 34, 42);
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+$shadow: rgba(0, 0, 0, 0.24);
+
+body {
+  background-color: #f5f5f5;
+}
+
+.main-wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  background-color: $white;
+}
+
+.header {
+  background-color: $dark-color;
+  color: $white;
+  text-align: center;
+  padding: 2em 0;
+  
+  h1 {
+    font-size: 2em;
+    font-weight: 400;
+  }
+}
+
+#vue {
+  padding: 2em;
+}
+
+.selections-title {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 2em;
+  color: $dark-color;
+  font-weight: 400;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.catalog-item {
+  background-color: $white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1em;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 4px 8px $shadow;
+  }
+}
+
+.item-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.item-name {
+  font-size: 1em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: $dark-color;
+  min-height: 2.5em;
+}
+
+.item-price {
+  font-size: 0.9em;
+  color: $primary-color;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.add-to-cart {
+  background-color: $white;
+  color: $black;
+  border: 2px solid $black;
+  padding: 0.5em 1.5em;
+  font-size: 0.85em;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: "Bitter";
+  
+  &:hover {
+    background-color: $dark-color;
+    color: $white;
+    border-color: $dark-color;
+  }
+}
+
+// Responsive design
+@media (max-width: 1024px) {
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+  }
+  
+  #vue {
+    padding: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header h1 {
+    font-size: 1.5em;
+  }
+}
